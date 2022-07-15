@@ -1,3 +1,4 @@
 aiohttp
 aiogram
 bs4
+asyncio
