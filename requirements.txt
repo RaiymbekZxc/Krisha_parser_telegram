@@ -2,4 +2,4 @@ aiohttp==3.7.4.post0
 aiogram==2.20
 beautifulsoup4==4.11.1
 bs4==0.0.1
-asyncio==3.7.4
+asyncio
