@@ -6,21 +6,27 @@ from create_bot import bot
 
 
 async def ps():
+
     while True:
+
         with open('adverts.txt', 'r') as file: 
             all = file.read()
+
         act = await sqlite_db.get_active_filters()
+
         for link in await get_news():
+
             if link not in all:
                 with open('adverts.txt', 'a') as file:
                     file.write(link + '\n')
                 
-                for values in act:
-                    async with aiohttp.ClientSession() as session:
+                async with aiohttp.ClientSession() as session:
                         async with session.get(link, verify_ssl = False) as response:
                             html = await response.text()
                             soup = bs4.BeautifulSoup(html, 'html.parser')
                             ad = AdKrisha(soup)
+            
+                for values in act:
 
                     pr_info = str(values[2]).split()
                     sq_info = str(values[1]).split()
@@ -37,4 +43,5 @@ async def ps():
                     except:
                         print("User blocked us xd")
                     
+
         await asyncio.sleep(10)

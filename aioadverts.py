@@ -1,5 +1,5 @@
 
-import aiohttp, bs4, asyncio 
+import aiohttp, bs4
 
 
 async def get_news():
